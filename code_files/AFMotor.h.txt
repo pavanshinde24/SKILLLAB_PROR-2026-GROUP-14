@@ -1,0 +1,37 @@
+#include <AFMotor.h>
+
+// Motors are connected to terminals M3 and M4
+AF_DCMotor motorL(3); 
+AF_DCMotor motorR(4); 
+
+void setup() {
+  Serial.begin(9600);
+  Serial.println("Simple Motor Test Started!");
+
+  // Set speed (0 is off, 255 is max)
+  // 200 is a good, safe testing speed
+  motorL.setSpeed(200); 
+  motorR.setSpeed(200);
+}
+
+void loop() {
+  Serial.println("Moving FORWARD");
+  motorL.run(FORWARD);
+  motorR.run(FORWARD);
+  delay(2000); // Run for 2 seconds
+
+  Serial.println("STOPPING");
+  motorL.run(RELEASE);
+  motorR.run(RELEASE);
+  delay(1000); // Stop for 1 second
+
+  Serial.println("Moving BACKWARD");
+  motorL.run(BACKWARD);
+  motorR.run(BACKWARD);
+  delay(2000); // Run for 2 seconds
+
+  Serial.println("STOPPING");
+  motorL.run(RELEASE);
+  motorR.run(RELEASE);
+  delay(1000); // Stop for 1 second
+}
