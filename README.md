@@ -63,10 +63,10 @@ By the final review, this README should clearly show:
 
 | Name                  | Primary Role                    | Secondary Role   | Strengths Brought to the Project |
 | --------------        | ------------------------------- | --------------   | -------------------------------- |
-| `Prasad Mane`         | `[Electronics / Coding / App ]` | `Documentation`  | `Documentation, Gift of Gab `    |
-| `Yash Bhere`          | `[Electronics / Fabrication]`   | `[Coding]`       | `Material Handling, Hardware`    |
-| `Shaunak Chaudri`     | `[Electronics / Fabrication]`   | `[Coding]`       | `Material Handling, Hardware`    |
-| `Pavan Shinde`        | `[Electronics / Fabrication]`   | `[Coding]`       | `Material Handling, Hardware`    |
+| `Prasad Rane`         | `[Hardware / Coding / App ]`    | `[Integration]`  | `Main Lead and overall Handling `|
+| `Yash Behere`         | `[Hardware Co-odinator]`        | `[Documentation]`| `Material Handling, Hardware`    |
+| `Shaunak Chaudhari`   | `[Software]`                    | `[Testing]`      | `Software and testing`           |
+| `Pavan Shinde`        | `[Github/Documentation]`        | `[Testing]`      | `Documentation and updates`      |
 
 ## 1.3 Project Title
 
@@ -81,7 +81,10 @@ By the final review, this README should clearly show:
 ## 1.5 Expanded Project Idea
 
 **Response:**  
-`A projected and fully customizable time portal can transform engineering education into an immersive PUBG-style battlefield experience from the comfort of home. In this environment, students can learn engineering concepts by entering a virtual battlefield where challenges, obstacles, and missions are designed around real technical problems. Instead of passively studying theory, learners actively apply concepts such as electronics, coding, sensors, robotics, mechanics, and system design to complete missions, solve problems, and progress through different levels. This approach makes engineering education more interactive, engaging, and practical by combining gaming, simulation, and hands-on problem-solving in a familiar and exciting format.`
+`Nexus Robotics is an integrated IoT Ecosystem that bridges high-level web management with low-level hardware control to create a highly resilient "Smart          
+ Vehicle." The system features a dual-layer intelligence architecture:
+-The "Brain" (Raspberry Pi): Runs a Flask server and React dashboard. It handles Wi-Fi commands, Emergency OTP unlocking, local RFID tag verification, and the      capacitive touchanti-theft system. 
+-The "Muscles & Reflexes" (Arduino Uno): Receives movement commands via USB serial. However, to prevent crashes from network latency, the Arduino relies on its     own "Reflexes"—an array of Ultrasonic and IR sensors that instantly kill power to the motors and auto-correct steering if a physical obstacle is detected, acting  entirely independent of the web server.`
 
 ---
 
@@ -91,20 +94,19 @@ By the final review, this README should clearly show:
 
 List what inspired the project.
 
-| Source Type | Title / Link                                                        | What Inspired You                                                                         |
-| ----------- | ------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
-| `[Video]`   | `https://www.instagram.com/reel/DW4CT7WCDry/?igsh=cXg3dzAxYmdncDBo` | `How projection mapping can be used to create interactive digital + physical experiences` |
-|             |                                                                     |                                                                                           |
-|             |                                                                     |                                                                                           |
+| Source Type | Title / Link                         |                    What Inspired You                                                           |
+|`[ Concept]` | `Modern Automotive Security Systems` | `How modern cars use a mix of key fobs (RFID) and remote app unlocking (OTP/Web).`             |
+| `[Concept]` | `Industrial Robotics Safety`         | `Hardware-level kill switches (Sensors -> Arduino) that bypass software lag to save hardware.` |
 
 ## 2.2 Original Twist
 
 What makes your project original?
 
 **Response:**  
+`What makes your project original? Most hackathon RC cars are fully Raspberry Pi-controlled and tend to crash when the Wi-Fi lags. Our twist is the split   
+ architecture. The Pi handles the heavy web UI and security authentication, while the Arduino acts as an independent reflex system. If the Pi tells the car to 
+ drive forward, but the Arduino's sensors detect a wall, the Arduino overrides the Pi, stops the car, and ignores further drive commands until the path is clear.`
 
-
----
 
 # 3. Project Intent
 
@@ -112,13 +114,12 @@ What makes your project original?
 
 Describe exactly how a user will use the project.Make it a story
 **Response:**  
-
+`The user approaches the locked rover. They can either tap their physical HW-147 RFID keychain on the car's scanner, or log into the React dashboard on their 
+ phone and enter the 6-digit Emergency OTP. Upon verification, the dashboard flashes green ("UNLOCKED"). The user uses the on-screen joystick to drive the car. If 
+ they accidentally drive the car straight at a wall, the front Ultrasonic sensor detects it. The Arduino instantly cuts motor power. If they drift too close to a 
+ side wall, the side IR sensors trigger the Arduino to briefly counter-steer to avoid scraping. If an unauthorized person touches the locked car, the capacitive 
+ touch sensor triggers an alarm, flashing the LED boards and sending a red alert to the web dashboard.`
                                                   |
-
-
-
----
-
 # 4. Definition of Success
 
 ## 4.1 Definition of “Usable”
