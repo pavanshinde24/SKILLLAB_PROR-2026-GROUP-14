@@ -128,41 +128,29 @@
 
 ## 6.1 Concept Architecture/sketch/schematic
 
-graph TD
-classDef ui fill:#1e40af,stroke:#60a5fa,stroke-width:2px,color:#fff;
-classDef pi fill:#b91c1c,stroke:#f87171,stroke-width:2px,color:#fff;
-classDef arduino fill:#0369a1,stroke:#38bdf8,stroke-width:2px,color:#fff;
-classDef sensor fill:#166534,stroke:#4ade80,stroke-width:2px,color:#fff;
-classDef motor fill:#b45309,stroke:#fbbf24,stroke-width:2px,color:#fff;
-Dash[📱 Web Dashboard]:::ui
-Pi[🍓 Raspberry Pi]:::pi
-RFID[💳 HW-147 RFID]:::sensor
-Touch[👆 Touch Sensor]:::sensor
-Uno[♾ Arduino Uno]:::arduino
-Sensors[📡 Ultrasonic & IR Sensors]:::sensor
-Shield[⚙ L293D Motor Shield]:::motor
-Motors[🚗 4x BO Motors & Servo]:::motor
-LEDs[🚨 Alarm LEDs]:::ui
-Dash <-->|Wi-Fi: OTP & Commands| Pi
-RFID -->|SPI: 3.3V Logic| Pi
-Touch -->|GPIO 17| Pi
+ graph TD
+ classDef ui fill:#1e40af,stroke:#60a5fa,stroke-width:2px,color:#fff;
+ classDef pi fill:#b91c1c,stroke:#f87171,stroke-width:2px,color:#fff;
+ classDef arduino fill:#0369a1,stroke:#38bdf8,stroke-width:2px,color:#fff;
+ classDef sensor fill:#166534,stroke:#4ade80,stroke-width:2px,color:#fff;
+ classDef motor fill:#b45309,stroke:#fbbf24,stroke-width:2px,color:#fff;
+ Dash[📱 Web Dashboard]:::ui
+ Pi[🍓 Raspberry Pi]:::pi
+ RFID[💳 HW-147 RFID]:::sensor
+ Touch[👆 Touch Sensor]:::sensor
+ Uno[♾ Arduino Uno]:::arduino
+ Sensors[📡 Ultrasonic & IR Sensors]:::sensor
+ Shield[⚙ L293D Motor Shield]:::motor
+ Motors[🚗 4x BO Motors & Servo]:::motor
+ LEDs[🚨 Alarm LEDs]:::ui
+ Dash <-->|Wi-Fi: OTP & Commands| Pi
+ RFID -->|SPI: 3.3V Logic| Pi
+ Touch -->|GPIO 17| Pi
 Pi -->|GPIO 27| LEDs
 Pi <-->|USB: Serial Commands 'U', 'F'| Uno
 Sensors -->|Pins A0-A3| Uno
 Uno -->|PWM Signals| Shield
 Shield -->|11.1V Power| Motors
-
-
-**Insert image below:**  
-`[Upload image and link here]`
-
-Example:
-
-```md
-
-```
-
-
 
 ## 6.2 Labeled Build Sketch/architecture/flow diagram/algorithm
 
@@ -177,8 +165,7 @@ Add a sketch with labels showing:
 
 **Insert image below:**  
 `[Upload image and link here]`
-<img width="1600" height="1200" alt="image" src="https://github.com/user-attachments/assets/95637f31-b4e7-4427-a9e1-4b63fbeb0ac5" />
-
+<img width="1280" height="814" alt="car2 img" src="https://github.com/user-attachments/assets/2527ea44-ed70-4a4c-96ec-826e19273f9f" />
 ## 6.3 Approximate Dimensions
 
 | Dimension        | Value   |
