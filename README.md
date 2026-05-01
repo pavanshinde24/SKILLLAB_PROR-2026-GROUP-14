@@ -71,60 +71,58 @@
  
 ## 4.3 Stretch Features
 
-- Hardware-level side-collision avoidance using IR Sensors wired to the Arduino's analog pins.
-- Capacitive touch-based anti-theft panic alarm wired directly to the Pi's GPIO.
--  A "Parking Card" RFID feature that displays a contact screen on the web dashboard.
+- `Hardware-level side-collision avoidance using IR Sensors wired to the Arduino's analog pins.`
+- `Capacitive touch-based anti-theft panic alarm wired directly to the Pi's GPIO.`
+- `A "Parking Card" RFID feature that displays a contact screen on the web dashboard.`
 
 # 5. System Overview
 
 ## 5.1 Project Type
 
-Check all that apply.
+- [x] `Electronics-based`
 
-- [x] Electronics-based
+- [ ] `Mechanical`
 
-- [ ] Mechanical
+- [x] `Sensor-based`
 
-- [x] Sensor-based
+- [x] `App-connected`
 
-- [x] App-connected
+- [x] `Motorized`
 
-- [x] Motorized
+- [ ] `Sound-based`
 
-- [ ] Sound-based
+- [ ] `Light-based`
 
-- [ ] Light-based
+- [x] `Screen/UI-based`
 
-- [x] Screen/UI-based
+- [x] `Fabricated structure`
 
-- [x] Fabricated structure
+- [ ] `Game logic based`
 
-- [ ] Game logic based
+- [ ] `Installation`
 
-- [ ] Installation
-
-- [ ] Other:
+- [ ] `Other:`
 
 ## 5.2 High-Level System Description
 
-- INPUT 1 (Digital): React Dashboard sends OTP and drive commands over Wi-Fi to the Pi.
-- INPUT 2 (Security): RFID HW-147 reads cards (SPI), and Touch sensor detects tampering (GPIO 17).
-- PROCESSING 1 (Brain): Pi Flask server validates inputs, handles security, and sends Serial chars (U, F, B, L, R, S) via USB.
-- PROCESSING 2 (Reflexes): Arduino reads USB commands AND local Collision Sensors (Ultrasonic/IR).
-- OUTPUT 1 (Physical): Arduino drives L293D shield, Servo, and 4 BO Motors.
-- OUTPUT 2 (Digital): Pi emits Socket.IO updates to update the React UI and flashes LED Arrow boards on alarm.
-- 
+- `INPUT 1 (Digital): React Dashboard sends OTP and drive commands over Wi-Fi to the Pi.`
+- `INPUT 2 (Security): RFID HW-147 reads cards (SPI), and Touch sensor detects tampering (GPIO 17).`
+- `PROCESSING 1 (Brain): Pi Flask server validates inputs, handles security, and sends Serial chars (U, F, B, L, R, S) via USB.`
+- `PROCESSING 2 (Reflexes): Arduino reads USB commands AND local Collision Sensors (Ultrasonic/IR).`
+- `OUTPUT 1 (Physical): Arduino drives L293D shield, Servo, and 4 BO Motors.`
+- `OUTPUT 2 (Digital): Pi emits Socket.IO updates to update the React UI and flashes LED Arrow boards on alarm.`
+
 ## 5.3 Input / Output Map
 
 | **System Part** | **Type** | **What It Does** |
 | --- | --- | --- |
-| React Dashboard | Input/Output| Takes OTP/Drive inputs, displays Live Status/Telemetry. |
-| HW-147 RFID Scanner | Input | Reads physical key fobs for local unlocking. |
-| Capacitive Touch Sensor | Input | Detects unauthorized physical tampering. |
-| Raspberry Pi (Flask) | Processing | Web server, Security validation, and Serial Master |
-| Ultrasonic & IR Sensors | Input | Hardware-level collision detection for the front and sides. |
-| Arduino Uno | Processing | Translates serial commands to motor movement and manages sensor reflexes. |
-| L293D Motor Shield | Output | Physically drives the 4WD chassis. |
+| `React Dashboard` | `Input/Output`| `Takes OTP/Drive inputs, displays Live Status/Telemetry.` |
+| `HW-147 RFID Scanner` | `Input` | `Reads physical key fobs for local unlocking.` |
+| `Capacitive Touch Sensor` | `Input` | `Detects unauthorized physical tampering.` |
+| `Raspberry Pi (Flask)` | `Processing` | `Web server, Security validation, and Serial Master` |
+| `Ultrasonic & IR Sensors` | `Input` | `Hardware-level collision detection for the front and sides.` |
+| `Arduino Uno` | `Processing` | `Translates serial commands to motor movement and manages sensor reflexes.` |
+| `L293D Motor Shield` | `Output` | `Physically drives the 4WD chassis. |
 
 # 6. System Design, Sketches and Visual Planning 
 
