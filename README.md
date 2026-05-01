@@ -130,51 +130,51 @@
 
  `graph TD`
  
-     `classDef ui fill:#1e40af,stroke:#60a5fa,stroke-width:2px,color:#fff;`
+     classDef ui fill:#1e40af,stroke:#60a5fa,stroke-width:2px,color:#fff;
  
-     `classDef pi fill:#b91c1c,stroke:#f87171,stroke-width:2px,color:#fff;`
+     classDef pi fill:#b91c1c,stroke:#f87171,stroke-width:2px,color:#fff;
  
-     `classDef arduino fill:#0369a1,stroke:#38bdf8,stroke-width:2px,color:#fff;`
+     classDef arduino fill:#0369a1,stroke:#38bdf8,stroke-width:2px,color:#fff;
  
-     `classDef sensor fill:#166534,stroke:#4ade80,stroke-width:2px,color:#fff;`
+     classDef sensor fill:#166534,stroke:#4ade80,stroke-width:2px,color:#fff;
  
-     `classDef motor fill:#b45309,stroke:#fbbf24,stroke-width:2px,color:#fff;`
+     classDef motor fill:#b45309,stroke:#fbbf24,stroke-width:2px,color:#fff;
      
  
-     `Dash[ Web Dashboard]:::ui`
+     Dash[ Web Dashboard]:::ui
  
-     `Pi[ Raspberry Pi]:::pi`
+     Pi[ Raspberry Pi]:::pi
  
-     `RFID[ HW-147 RFID]:::sensor`
+     RFID[ HW-147 RFID]:::sensor
  
-     `Touch[ Touch Sensor]:::sensor`
+     Touch[ Touch Sensor]:::sensor
  
-     `Uno[ Arduino Uno]:::arduino`
+     Uno[ Arduino Uno]:::arduino
  
-     `Sensors[ Ultrasonic & IR Sensors]:::sensor`
+     Sensors[ Ultrasonic & IR Sensors]:::sensor
  
-     `Shield[ L293D Motor Shield]:::motor`
+     Shield[ L293D Motor Shield]:::motor
  
-     `Motors[ 4x BO Motors & Servo]:::motor`
+     Motors[ 4x BO Motors & Servo]:::motor
  
-     `LEDs[ Alarm LEDs]:::ui`
+     LEDs[ Alarm LEDs]:::ui
      
  
-     `Dash <-->|Wi-Fi: OTP & Commands| Pi`
+     Dash <-->|Wi-Fi: OTP & Commands| Pi
  
-     `RFID -->|SPI: 3.3V Logic| Pi`
+     RFID -->|SPI: 3.3V Logic| Pi
  
-     `Touch -->|GPIO 17| Pi`
+     Touch -->|GPIO 17| Pi
  
-     `Pi -->|GPIO 27| LEDs`
+     Pi -->|GPIO 27| LEDs
  
-     `Pi <-->|USB: Serial Commands 'U', 'F'| Uno`
+     Pi <-->|USB: Serial Commands 'U', 'F'| Uno
  
-     `Sensors -->|Pins A0-A3| Uno`
+     Sensors -->|Pins A0-A3| Uno
  
-     `Uno -->|PWM Signals| Shield`
+     Uno -->|PWM Signals| Shield
  
-     `Shield -->|11.1V Power| Motors`
+     Shield -->|11.1V Power| Motors
 
 ## 6.2 Labeled Build Sketch/architecture/flow diagram/algorithm
 
