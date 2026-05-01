@@ -94,7 +94,7 @@ By the final review, this README should clearly show:
 
 List what inspired the project.
 
-| Source Type | Title / Link                         |                    What Inspired You                                                           |
+| Source Type | Title / Link                         | What Inspired You                                                                              |
 |`[ Concept]` | `Modern Automotive Security Systems` | `How modern cars use a mix of key fobs (RFID) and remote app unlocking (OTP/Web).`             |
 | `[Concept]` | `Industrial Robotics Safety`         | `Hardware-level kill switches (Sensors -> Arduino) that bypass software lag to save hardware.` |
 
@@ -123,15 +123,11 @@ Describe exactly how a user will use the project.Make it a story
 # 4. Definition of Success
 
 ## 4.1 Definition of “Usable”
-
-
-
 ## 4.2 Minimum Usable Version
 
 What is the smallest version of this project that still delivers the core experience?
 
 **Response:**  
-
 
 ## 4.3 Stretch Features
 
