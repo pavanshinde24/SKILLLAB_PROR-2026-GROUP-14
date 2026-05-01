@@ -249,42 +249,19 @@ Insert a hand-drawn or software-made circuit diagram.
 
 | Tool / Platform                | Purpose                                        |
 | ------------------------------ | ---------------------------------------------- |
-| `[MicroPython]`                | `Control ESP32`                                |
-| `[Python/PyGame/OpenCV]`       | `Track markers, game logic, create projection` |
-| `[Fusion/Blender/Illustrator]` | `[Prototyping structure]`                      |
-|                                |                                                |
+| `[React & Tailwind CSS]`                | ` Build the interactive Web Dashboard UI.`                                |
+| `[Python / Flask / SocketIO]`       | ` Host server on Pi, manage State, GPIO reads, and USB Serial.` |
+| `[C++ / Arduino IDE]` | ` Motor control, sensor reading, reflex logic.`                      |
 
 ## 8.2 Software Logic/Algorithm
 
-Describe what the code must do.
+1. Startup: Pi boots, starts Flask server, and begins RFID/Touch background thread. Arduino boots, attaches sensors, and waits in a LOCKED state.
 
-Include:
+2. Input (Unlock): User enters OTP on React OR scans Master RFID tag. Pi sends U via USB.
 
-- startup behavior,
-- input handling,
-- sensor reading,
-- decision logic,
-- output behavior,
-- communication logic,
-- reset behavior.
+3. Decision (Movement): User presses "Forward". Pi sends F. Arduino checks Ultrasonic ping_cm(). If path is clear, Arduino powers L293D.
 
-**Response:**  
-`
-
-- **Sample Startup behavior:**  
-  The Raspi/FPGA initializes motor pins, PWM control, and starts a WiFi access point with a web server. The laptop initializes camera input, tracking system, and projection mapping.
-- **Input handling:**  
-  Movement commands are received from the laptop (pygame sends http requests)
-- **Sensor reading:**  
-  The camera continuously captures frames, and OpenCV detects ArUco markers to determine the car’s position and orientation.
-- **Decision logic:**  
-  The system maps the car’s position into a virtual coordinate system and checks for nearby obstacles or collisions. If movement is valid, the command is allowed; if not, it is blocked or replaced with a feedback action (like a slight shake).
-- **Output behavior:**  
-  The ESP32 drives the motors using PWM signals to control speed and direction. The projector displays the updated game environment, including obstacles, targets, and feedback visuals.
-- **Communication logic:**  
-  The laptop sends HTTP requests (e.g., `/forward`, `/left`) to the ESP32 over WiFi. The ESP32 parses these commands and executes motor actions.
-- **Reset behavior:**  
-  If no command is received within a short timeout, the ESP32 stops the motors. The game resets when a level is completed or restarted.`
+4. Reflex Override: If car is moving and the Left IR detects a wall (reads LOW), the Arduino instantly veers right, completely bypassing the Pi to save time. If Ultrasonic detects a frontal wall under 30cm, motors halt instantly and evaluate left/right distances using the servo.
 
 ## 8.3 Code Flowchart
 
