@@ -291,11 +291,16 @@ Suggested sequence:
 
 | Item                             | Quantity | In Kit? | Need to Buy? | Estimated Cost | Material / Spec               | Why This Choice?          |
 | -------------------------------- | --------:| ------- | ------------ | --------------:| ----------------------------- | ------------------------- |
-| `[RASPI]`                        | `1`      | `Yes`   | `No`         | `0`            | `38 Pin ESP32`                | `[To control components]` |
-| `[Motor Driver]`                 | `[1]`    | `[Yes]` | `[No]`       | `0`            | `[LN296]`                     | `[To drive both motors]`  |
-| `[DC Motors and wheel]`          | `[2]`    | `[No]`  | `[Yes]`      | `[150]`        | `[BO Motors and 6 cm wheels]` | `[high torque motors]`    |
-| `[Buck Converter]`               | `[1]`    | `[No]`  | `[Yes]`      | `[75]`         |                               |                           |
-| `[Li-ion batteries with holder]` | `[1]`    | `[No]`  | `[Yes]`      | `[200]`        |                               |                           |
+| `[Raspberry Pi 4]`                        | `[1]`      | `[Y/N]`  | `[Y/N]`        | `[5000]`            | `[Web server brain]`                | `[To control components]` |
+| `[Arduino Uno]`                 | `[1]`    | `[Y/N]` | `[Y/N]`       | `[200]`            | `[ ATmega328P]`                     | `[To drive both motors]`  |
+| `[L293D Motor Shield]`          | `[1]`    | `[Y/N]`  | `[Y/N]`      | `[150]`        | `[ V1 Adafruit clone]` | `[high torque motors]`    |
+| `[DC BO Motors]`               | `[4]`    | `[Y/N]`  | `[Y/N]`      | `[200]`         |       `[Yellow plastic gear]`        |`[Standard robotics base]`       |
+| `[HW-147 RFID]` | `[1]`    | `[Y/N]`  | `[Y/N]`      | `[200]`        |             `[ 13.56MHz]`                      | `[Hardware Security]`      |
+| `[HC-SR04]`                 | `[1]`    | `[Y/N]` | `[Y/N]`       | `[100]`            | `[ Ultrasonic]`                     | `[ Front collision prevention]`  |
+| `[IR Sensors]`          | `[2]`    | `[Y/N]`  | `[Y/N]`      | `[150]`        | `[ Infrared]` | `[Side collision prevention]`    |
+| `[Capacitive Touch]`               | `[1]`    | `[Y/N]`  | `[Y/N]`      | `[100]`         |  [ Digital output]    |  [Anti-theft detection]                 |
+| `[11.1V Li-Po Battery]` | `[1]`    | `[Y/N]`  | `[Y/N]`      | `[1000]`        |  [4500mAh 3S ]     | [ High discharge rate for 4 motors]  |
+
 
 ## 9.2 Material Justification
 
