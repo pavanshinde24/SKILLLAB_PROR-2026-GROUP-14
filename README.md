@@ -14,22 +14,18 @@
 
 ## 1.3 Project Title
 
-"S.A.V.E - Smart Anti-theft Vehicle Ecosystem"
-
-<img width="1600" height="1131" alt="image" src="https://github.com/user-attachments/assets/c64bfbd4-b3b7-43d9-83ad-c203a5aa11bc" />
-
+`"S.A.V.E - Smart Anti-theft Vehicle Ecosystem"`
 ## 1.4 One-Line Pitch
-
-A tri-state secured IoT vehicle featuring remote React web dashboard control, local RFID access, and instant hardware-level crash prevention reflexes.
+`A tri-state secured IoT vehicle featuring remote React web dashboard control, local RFID access, and instant hardware-level crash prevention reflexes.`
 
 ## 1.5 Expanded Project Idea
 
 **Response:**  
-Nexus Robotics is an integrated IoT Ecosystem that bridges high-level web management with low-level hardware control to create a highly resilient "Smart        Vehicle." The system features a dual-layer intelligence architecture:
+`Nexus Robotics is an integrated IoT Ecosystem that bridges high-level web management with low-level hardware control to create a highly resilient "Smart        Vehicle." The system features a dual-layer intelligence architecture:
 
 -The "Brain" (Raspberry Pi): Runs a Flask server and React dashboard. It handles Wi-Fi commands, Emergency OTP unlocking, local RFID tag verification, and the  capacitive touchanti-theft system. 
 
--The "Muscles & Reflexes" (Arduino Uno): Receives movement commands via USB serial. However, to prevent crashes from network latency, the Arduino relies on its     own "Reflexes"—an array of Ultrasonic and IR sensors that instantly kill power to the motors and auto-correct steering if a physical obstacle is detected, acting  entirely independent of the web server.
+-The "Muscles & Reflexes" (Arduino Uno): Receives movement commands via USB serial. However, to prevent crashes from network latency, the Arduino relies on its     own "Reflexes"—an array of Ultrasonic and IR sensors that instantly kill power to the motors and auto-correct steering if a physical obstacle is detected, acting  entirely independent of the web server.`
 
 # 2. Inspiration
 
