@@ -73,7 +73,7 @@
 
 `- Hardware-level side-collision avoidance using IR Sensors wired to the Arduino's analog pins.`
 `- Capacitive touch-based anti-theft panic alarm wired directly to the Pi's GPIO.`
-`- A "Parking Card" RFID feature that displays a contact screen on the web dashboard.`
+`-  A "Parking Card" RFID feature that displays a contact screen on the web dashboard.`
 
 # 5. System Overview
 
