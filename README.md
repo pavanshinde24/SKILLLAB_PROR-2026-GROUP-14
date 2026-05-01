@@ -128,51 +128,53 @@
 
 ## 6.1 Concept Architecture/sketch/schematic
 
- graph TD
+ `graph TD`
  
- classDef ui fill:#1e40af,stroke:#60a5fa,stroke-width:2px,color:#fff;
+     `classDef ui fill:#1e40af,stroke:#60a5fa,stroke-width:2px,color:#fff;`
  
- classDef pi fill:#b91c1c,stroke:#f87171,stroke-width:2px,color:#fff;
+     `classDef pi fill:#b91c1c,stroke:#f87171,stroke-width:2px,color:#fff;`
  
- classDef arduino fill:#0369a1,stroke:#38bdf8,stroke-width:2px,color:#fff;
+     `classDef arduino fill:#0369a1,stroke:#38bdf8,stroke-width:2px,color:#fff;`
  
- classDef sensor fill:#166534,stroke:#4ade80,stroke-width:2px,color:#fff;
+     `classDef sensor fill:#166534,stroke:#4ade80,stroke-width:2px,color:#fff;`
  
- classDef motor fill:#b45309,stroke:#fbbf24,stroke-width:2px,color:#fff;
+     `classDef motor fill:#b45309,stroke:#fbbf24,stroke-width:2px,color:#fff;`
+     
  
- Dash[📱 Web Dashboard]:::ui
+     `Dash[ Web Dashboard]:::ui`
  
- Pi[🍓 Raspberry Pi]:::pi
+     `Pi[ Raspberry Pi]:::pi`
  
- RFID[💳 HW-147 RFID]:::sensor
+     `RFID[ HW-147 RFID]:::sensor`
  
- Touch[👆 Touch Sensor]:::sensor
+     `Touch[ Touch Sensor]:::sensor`
  
- Uno[♾ Arduino Uno]:::arduino
+     `Uno[ Arduino Uno]:::arduino`
  
- Sensors[📡 Ultrasonic & IR Sensors]:::sensor
+     `Sensors[ Ultrasonic & IR Sensors]:::sensor`
  
- Shield[⚙ L293D Motor Shield]:::motor
+     `Shield[ L293D Motor Shield]:::motor`
  
- Motors[🚗 4x BO Motors & Servo]:::motor
+     `Motors[ 4x BO Motors & Servo]:::motor`
  
- LEDs[🚨 Alarm LEDs]:::ui
+     `LEDs[ Alarm LEDs]:::ui`
+     
  
- Dash <-->|Wi-Fi: OTP & Commands| Pi
+     `Dash <-->|Wi-Fi: OTP & Commands| Pi`
  
- RFID -->|SPI: 3.3V Logic| Pi
+     `RFID -->|SPI: 3.3V Logic| Pi`
  
- Touch -->|GPIO 17| Pi
+     `Touch -->|GPIO 17| Pi`
  
- Pi -->|GPIO 27| LEDs
+     `Pi -->|GPIO 27| LEDs`
  
- Pi <-->|USB: Serial Commands 'U', 'F'| Uno
+     `Pi <-->|USB: Serial Commands 'U', 'F'| Uno`
  
- Sensors -->|Pins A0-A3| Uno
+     `Sensors -->|Pins A0-A3| Uno`
  
- Uno -->|PWM Signals| Shield
+     `Uno -->|PWM Signals| Shield`
  
- Shield -->|11.1V Power| Motors
+     `Shield -->|11.1V Power| Motors`
 
 ## 6.2 Labeled Build Sketch/architecture/flow diagram/algorithm
 
@@ -195,24 +197,34 @@
 
 | Component                 | Quantity | Purpose                               |
 | ------------------------- | --------:| ------------------------------------- |
-| `[Raspi/FPGA]`                 | `1`      | `[Main controller]`                   |
-| `[L298N Motor Driver]`    | `1`      | `[Control Motors]`                    |
-| `[BO Motors]`             | `2`      | `[Rotate wheels]`                     |
-| `[Buck Converter]`        | `1`      | `[Power ESP32]`                       |
-| `[Li Ion Battery Pack]`   | `2`      | `[Power]`                             |
-| `[Projector]`             | `1`      | `[Display obstacles]`                 |
-| `Camera (Webcam / Phone)` | `1`      | `[Tracks car position using markers]` |
+| `[Raspberry Pi]`                 | `1`      | `[ Main server, Wi-Fi, RFID handling, Alarm trigger]`                   |
+| `[Arduino Uno]`    | `1`      | `[ Hardware controller and reflex logic]`                    |
+| `[L293D Motor Shiel]`             | `1`      | `[ High-current driver for Motor]`                     |
+| `[BO Motors]`        | `4`      | `[4WD Rotate wheels]`                       |
+| `[SG90 Servo Motor]`   | `1`      | `[Sweeps the Ultrasonic sensor left/right]`                             |
+| `[HW-147 RFID Modul]`             | `1`      | `[ Physical security access (Key & Parking Card)]`                 |
+| `[Ultrasonic HC-SR04]` | `1`      | `[ Front collision detection]` |
+| `[IR Sensors]`   | `2`      | `[ Left/Right side collision detection]`                             |
+| `[Capacitive Touch Sensor]`             | `1`      | `[  Anti-theft tampering detection]`                 |
+| `[Custom LED Boards]` | `2`      | `[  Visual alarm indicators]` |
 
 ## 7.2 Wiring Plan
 
-Describe the main electrical connections.
+- `The Brain (Raspberry Pi): * HW-147 RFID module connected to 3.3V native SPI pins (SDA/SS to GPIO 8, SCK to GPIO 11, MOSI to GPIO 10, MISO to GPIO 9).`
+  
+       - `Touch sensor connected to GPIO 17.`
+       - `Alarm LEDs connected to GPIO 27.`
+       - `Pi connects to the Arduino via a standard USB A-to-B cable (/dev/ttyUSB0).`
+ 
+ - `The Muscle (Arduino Uno & Shield): * L293D Motor shield sits on top of the Arduino.`
 
-**sample Response:**  
-`The RASPI is connected to the motor driver (L298N) using four GPIO pins (18,19; 22,23) to control motor direction (IN1, IN2, IN3, IN4). Two PWM-capable pins (ENA and ENB; 25 and 26) are connected to control the speed of each motor.
-
-The motors are connected to the output terminals of the motor driver. The motor driver is powered directly by the battery pack (higher voltage), while the ESP32 receives regulated 5V from the buck converter.
-
-All components share a common ground to ensure stable operation. The projector and camera are connected to the laptop, which handles tracking and game logic separately.`
+       - `4 BO motors connect to M1, M2, M3, M4.`
+       - `SG90 Servo connects to SER1 (Pin 10).`
+   
+- `The Reflexes (Arduino Analog Pins): * Ultrasonic Trig -> A0, Echo -> A1.`
+  
+      - `Left IR -> A2.`
+      - `Right IR -> A3.`
 
 ## 7.3 Circuit Diagram/architecture diagram
 
