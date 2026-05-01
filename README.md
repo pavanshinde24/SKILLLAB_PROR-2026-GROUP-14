@@ -239,9 +239,9 @@ Insert a hand-drawn or software-made circuit diagram.
 
 | Question         | Response                                                                                                                                          |
 | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Power source     | `Orange 11.1V 3S Li-Po for Motors + Separate 5V Power Bank for Pi`                                                                                                                           |
-| Voltage required | `11.1V for Motors, 5V for Arduino/Pi, 3.3V for RFID.`                                                                  |
-| Safety concerns  | `CRITICAL: Removed the PWR jumper next to the EXT_PWR block on the Motor Shield.This keeps the 11.1V battery completely isolated from the Arduino's logic power, preventing the Raspberry Pi's USB port from being overloaded or fried.` |
+| `Power source`     | `Orange 11.1V 3S Li-Po for Motors + Separate 5V Power Bank for Pi`                                                                                                                           |
+| `Voltage required` | `11.1V for Motors, 5V for Arduino/Pi, 3.3V for RFID.`                                                                  |
+| `Safety concerns`  | `CRITICAL: Removed the PWR jumper next to the EXT_PWR block on the Motor Shield.This keeps the 11.1V battery completely isolated from the Arduino's logic power, preventing the Raspberry Pi's USB port from being overloaded or fried.` |
 
 # 8. Software Planning/
 
@@ -255,13 +255,13 @@ Insert a hand-drawn or software-made circuit diagram.
 
 ## 8.2 Software Logic/Algorithm
 
-1. Startup: Pi boots, starts Flask server, and begins RFID/Touch background thread. Arduino boots, attaches sensors, and waits in a LOCKED state.
+1. `Startup: Pi boots, starts Flask server, and begins RFID/Touch background thread. Arduino boots, attaches sensors, and waits in a LOCKED state.`
 
-2. Input (Unlock): User enters OTP on React OR scans Master RFID tag. Pi sends U via USB.
+2. `Input (Unlock): User enters OTP on React OR scans Master RFID tag. Pi sends U via USB.`
 
-3. Decision (Movement): User presses "Forward". Pi sends F. Arduino checks Ultrasonic ping_cm(). If path is clear, Arduino powers L293D.
+3. `Decision (Movement): User presses "Forward". Pi sends F. Arduino checks Ultrasonic ping_cm(). If path is clear, Arduino powers L293D.`
 
-4. Reflex Override: If car is moving and the Left IR detects a wall (reads LOW), the Arduino instantly veers right, completely bypassing the Pi to save time. If Ultrasonic detects a frontal wall under 30cm, motors halt instantly and evaluate left/right distances using the servo.
+4. `Reflex Override: If car is moving and the Left IR detects a wall (reads LOW), the Arduino instantly veers right, completely bypassing the Pi to save time. If Ultrasonic detects a frontal wall under 30cm, motors halt instantly and evaluate left/right distances using the servo.`
 
 ## 8.3 Code Flowchart
 
