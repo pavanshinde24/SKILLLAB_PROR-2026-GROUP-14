@@ -83,10 +83,11 @@ By the final review, this README should clearly show:
 **Response:**  
 `Nexus Robotics is an integrated IoT Ecosystem that bridges high-level web management with low-level hardware control to create a highly resilient "Smart          
  Vehicle." The system features a dual-layer intelligence architecture:
--The "Brain" (Raspberry Pi): Runs a Flask server and React dashboard. It handles Wi-Fi commands, Emergency OTP unlocking, local RFID tag verification, and the      capacitive touchanti-theft system. 
--The "Muscles & Reflexes" (Arduino Uno): Receives movement commands via USB serial. However, to prevent crashes from network latency, the Arduino relies on its     own "Reflexes"—an array of Ultrasonic and IR sensors that instantly kill power to the motors and auto-correct steering if a physical obstacle is detected, acting  entirely independent of the web server.`
-
----
+-The "Brain" (Raspberry Pi): Runs a Flask server and React dashboard. It handles Wi-Fi commands, Emergency OTP unlocking, local RFID tag verification, and the     
+ capacitive touchanti-theft system. 
+-The "Muscles & Reflexes" (Arduino Uno): Receives movement commands via USB serial. However, to prevent crashes from network latency, the Arduino relies on its    
+ own "Reflexes"—an array of Ultrasonic and IR sensors that instantly kill power to the motors and auto-correct steering if a physical obstacle is detected, acting 
+ entirely independent of the web server.`
 
 # 2. Inspiration
 
@@ -124,18 +125,23 @@ Describe exactly how a user will use the project.Make it a story
 # 4. Definition of Success
 
 ## 4.1 Definition of “Usable”
+`The dashboard can successfully unlock the car via OTP, the Pi can read an RFID card via SPI,
+ and the car can drive forward/backward via Serial commands without the Raspberry Pi losing
+ power.`
 ## 4.2 Minimum Usable Version
 
 What is the smallest version of this project that still delivers the core experience?
 
 **Response:**  
-
+`OTP Web Unlock -> USB Serial Command to Arduino -> Motors spin. The front ultrasonic sensor
+ successfully stops the car if an object is placed in front of it.`
 ## 4.3 Stretch Features
 
 What features are nice to have but not essential?
-
-
----
+`-Hardware-level side-collision avoidance using IR Sensors wired to the Arduino's analog
+ pins.
+-Capacitive touch-based anti-theft panic alarm wired directly to the Pi's GPIO.
+-A "Parking Card" RFID feature that displays a contact screen on the web dashboard.`
 
 # 5. System Overview
 
@@ -155,15 +161,15 @@ Check all that apply.
 
 - [ ] Sound-based
 
-- [x] Light-based
+- [ ] Light-based
 
 - [x] Screen/UI-based
 
 - [x] Fabricated structure
 
-- [x] Game logic based
+- [ ] Game logic based
 
-- [x] Installation
+- [ ] Installation
 
 - [ ] Other:
 
@@ -180,19 +186,58 @@ Include:
 - app interaction if any.
 
 **Response:**  
-
+`-INPUT 1 (Digital): React Dashboard sends OTP and drive commands over Wi-Fi to the Pi.
+ -INPUT 2 (Security): RFID HW-147 reads cards (SPI), and Touch sensor detects tampering
+  (GPIO 17).
+ -PROCESSING 1 (Brain): Pi Flask server validates inputs, handles security, and sends Serial
+  chars (U, F, B, L, R, S) via USB.
+ -PROCESSING 2 (Reflexes): Arduino reads USB commands AND local Collision Sensors
+  (Ultrasonic/IR).
+ -OUTPUT 1 (Physical): Arduino drives L293D shield, Servo, and 4 BO Motors.
+ -OUTPUT 2 (Digital): Pi emits Socket.IO updates to update the React UI and flashes LED
+  Arrow boards on alarm.`
 ## 5.3 Input / Output Map
 
-| System Part                              | Type            | What It Does                                                               |
+| **System Part** | **Type** | **What It Does** |
+| --- | --- | --- |
+| React Dashboard | Input/Output| Takes OTP/Drive inputs, displays Live Status/Telemetry. |
+| HW-147 RFID Scanner | Input | Reads physical key fobs for local unlocking. |
+| Capacitive Touch Sensor | Input | Detects unauthorized physical tampering. |
+| Raspberry Pi (Flask) | Processing | Web server, Security validation, and Serial Master |
+| Ultrasonic & IR Sensors | Input | Hardware-level collision detection for the front and sides. |
+| Arduino Uno | Processing | Translates serial commands to motor movement and manages sensor reflexes. |
+| L293D Motor Shield | Output | Physically drives the 4WD chassis. |
 
-
----
 
 # 6. System Design, Sketches and Visual Planning 
 
 ## 6.1 Concept Architecture/sketch/schematic
 
 Add an early sketch of the full idea.
+graph TD
+classDef ui fill:#1e40af,stroke:#60a5fa,stroke-width:2px,color:#fff;
+classDef pi fill:#b91c1c,stroke:#f87171,stroke-width:2px,color:#fff;
+classDef arduino fill:#0369a1,stroke:#38bdf8,stroke-width:2px,color:#fff;
+classDef sensor fill:#166534,stroke:#4ade80,stroke-width:2px,color:#fff;
+classDef motor fill:#b45309,stroke:#fbbf24,stroke-width:2px,color:#fff;
+Dash[📱 Web Dashboard]:::ui
+Pi[🍓 Raspberry Pi]:::pi
+RFID[💳 HW-147 RFID]:::sensor
+Touch[👆 Touch Sensor]:::sensor
+Uno[♾ Arduino Uno]:::arduino
+Sensors[📡 Ultrasonic & IR Sensors]:::sensor
+Shield[⚙ L293D Motor Shield]:::motor
+Motors[🚗 4x BO Motors & Servo]:::motor
+LEDs[🚨 Alarm LEDs]:::ui
+Dash <-->|Wi-Fi: OTP & Commands| Pi
+RFID -->|SPI: 3.3V Logic| Pi
+Touch -->|GPIO 17| Pi
+Pi -->|GPIO 27| LEDs
+Pi <-->|USB: Serial Commands 'U', 'F'| Uno
+Sensors -->|Pins A0-A3| Uno
+Uno -->|PWM Signals| Shield
+Shield -->|11.1V Power| Motors
+
 
 **Insert image below:**  
 `[Upload image and link here]`
@@ -208,6 +253,7 @@ Example:
 ## 6.2 Labeled Build Sketch/architecture/flow diagram/algorithm
 
 Add a sketch with labels showing:
+![Block Diagram](<img width="1280" height="814" alt="car2 img" src="https://github.com/user-attachments/assets/2527ea44-ed70-4a4c-96ec-826e19273f9f" />)
 
 - structure,
 - electronics placement,
