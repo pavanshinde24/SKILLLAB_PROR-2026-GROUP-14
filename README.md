@@ -212,18 +212,19 @@
 
 - `The Brain (Raspberry Pi): * HW-147 RFID module connected to 3.3V native SPI pins (SDA/SS to GPIO 8, SCK to GPIO 11, MOSI to GPIO 10, MISO to GPIO 9).`
   
-       - `Touch sensor connected to GPIO 17.`
-       - `Alarm LEDs connected to GPIO 27.`
-       - `Pi connects to the Arduino via a standard USB A-to-B cable (/dev/ttyUSB0).`
+       - Touch sensor connected to GPIO 17.
+       - Alarm LEDs connected to GPIO 27.
+       - Pi connects to the Arduino via a standard USB A-to-B cable (/dev/ttyUSB0).
  
  - `The Muscle (Arduino Uno & Shield): * L293D Motor shield sits on top of the Arduino.`
-       - `4 BO motors connect to M1, M2, M3, M4.`
-       - `SG90 Servo connects to SER1 (Pin 10).`
+   
+       - 4 BO motors connect to M1, M2, M3, M4.
+       - SG90 Servo connects to SER1 (Pin 10).
    
 - `The Reflexes (Arduino Analog Pins): * Ultrasonic Trig -> A0, Echo -> A1.`
   
-      - `Left IR -> A2.`
-      - `Right IR -> A3.`
+      - Left IR -> A2.
+      - Right IR -> A3.
 
 ## 7.3 Circuit Diagram/architecture diagram
 
@@ -238,12 +239,11 @@ Insert a hand-drawn or software-made circuit diagram.
 
 | Question         | Response                                                                                                                                          |
 | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Power source     | `Battery (Li-ion pack)`                                                                                                                           |
-| Voltage required | `~6–8.4V for motors (via driver), stepped down to 5V for ESP32 (buck converter)`                                                                  |
-| Current concerns | `Motors can draw high current under load, which may cause voltage drops affecting ESP32 and WiFi stability`                                       |
-| Safety concerns  | `Avoid over-discharging Li-ion batteries, ensure proper voltage regulation, prevent short circuits, and secure wiring to avoid loose connections` |
-
----
+| Power source     | `Orange 11.1V 3S Li-Po for Motors + Separate 5V Power Bank for Pi`                                                                                                                           |
+| Voltage required | `11.1V for Motors, 5V for Arduino/Pi, 3.3V for RFID.`                                                                  |
+| Safety concerns  | `CRITICAL: Removed the PWR jumper next to the EXT_PWR block on the Motor Shield.
+This keeps the 11.1V battery completely isolated from the Arduino's logic power, preventing
+the Raspberry Pi's USB port from being overloaded or fried.` |
 
 # 8. Software Planning/
 
