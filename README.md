@@ -63,8 +63,10 @@ By the final review, this README should clearly show:
 
 | Name                  | Primary Role                    | Secondary Role   | Strengths Brought to the Project |
 | --------------        | ------------------------------- | --------------   | -------------------------------- |
-| `Mrugendra Vasmatkar` | `[Electronics / Coding / App ]` | `Documentation`  | `Documentation, Gift of Gab `|
-| `Jyoti Bagate`        | `[Electronics / Fabrication]`   | `[Coding]`       | `Material Handling, Hardware`    |
+| `Prasad Mane`         | `[Electronics / Coding / App ]` | `Documentation`  | `Documentation, Gift of Gab `    |
+| `Yash Bhere`          | `[Electronics / Fabrication]`   | `[Coding]`       | `Material Handling, Hardware`    |
+| `Shaunak Chaudri`     | `[Electronics / Fabrication]`   | `[Coding]`       | `Material Handling, Hardware`    |
+| `Pavan Shinde`        | `[Electronics / Fabrication]`   | `[Coding]`       | `Material Handling, Hardware`    |
 
 ## 1.3 Project Title
 
