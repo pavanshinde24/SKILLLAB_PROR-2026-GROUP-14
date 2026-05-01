@@ -96,10 +96,8 @@ List what inspired the project.
 
 | **Source Type** | **Title / Link** | **What Inspired You** |
 | --- | --- | --- |
-| **Concept** | [ Modern Automotive Security Systems] | How modern cars use a mix of key fobs (RFID) and remote
-app unlocking (OTP/Web). |
-| **Concept** | [ Industrial Robotics Safety] |  Hardware-level kill switches (Sensors -> Arduino) that
-bypass software lag to save hardware. |
+| **Concept** | [ Modern Automotive Security Systems] | How modern cars use a mix of key fobs (RFID) and remote app unlocking (OTP/Web). |
+| **Concept** | [ Industrial Robotics Safety] |  Hardware-level kill switches (Sensors -> Arduino) that bypass software lag to save hardware. |
 
 ## 2.2 Original Twist
 
