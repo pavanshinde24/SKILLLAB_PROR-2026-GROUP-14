@@ -241,9 +241,7 @@ Insert a hand-drawn or software-made circuit diagram.
 | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Power source     | `Orange 11.1V 3S Li-Po for Motors + Separate 5V Power Bank for Pi`                                                                                                                           |
 | Voltage required | `11.1V for Motors, 5V for Arduino/Pi, 3.3V for RFID.`                                                                  |
-| Safety concerns  | `CRITICAL: Removed the PWR jumper next to the EXT_PWR block on the Motor Shield.
-This keeps the 11.1V battery completely isolated from the Arduino's logic power, preventing
-the Raspberry Pi's USB port from being overloaded or fried.` |
+| Safety concerns  | `CRITICAL: Removed the PWR jumper next to the EXT_PWR block on the Motor Shield.This keeps the 11.1V battery completely isolated from the Arduino's logic power, preventing the Raspberry Pi's USB port from being overloaded or fried.` |
 
 # 8. Software Planning/
 
