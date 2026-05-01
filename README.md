@@ -39,8 +39,8 @@
 
 | **Source Type** | **Title / Link** | **What Inspired You** |
 | --- | --- | --- |
-| `**Concept**` | `[ Modern Automotive Security Systems]` | `How modern cars use a mix of key fobs (RFID) and remote app unlocking (OTP/Web).` |
-| `**Concept**` | `[ Industrial Robotics Safety]` |  `Hardware-level kill switches (Sensors -> Arduino) that bypass software lag to save hardware.` |
+| `Concept` | `[ Modern Automotive Security Systems]` | `How modern cars use a mix of key fobs (RFID) and remote app unlocking (OTP/Web).` |
+| `Concept` | `[ Industrial Robotics Safety]` |  `Hardware-level kill switches (Sensors -> Arduino) that bypass software lag to save hardware.` |
 
 ## 2.2 Original Twist 
 
@@ -217,7 +217,6 @@
        - `Pi connects to the Arduino via a standard USB A-to-B cable (/dev/ttyUSB0).`
  
  - `The Muscle (Arduino Uno & Shield): * L293D Motor shield sits on top of the Arduino.`
-
        - `4 BO motors connect to M1, M2, M3, M4.`
        - `SG90 Servo connects to SER1 (Pin 10).`
    
