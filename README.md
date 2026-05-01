@@ -57,7 +57,7 @@ By the final review, this README should clearly show:
 
 ## 1.1 Studio / Group Name
 
-`Project^2`
+`Group-14`
 
 ## 1.2 Team Members
 
@@ -70,23 +70,15 @@ By the final review, this README should clearly show:
 
 ## 1.3 Project Title
 
-`"Project Project"`
-
-`(because Project-or)`
+`"S.A.V.E - Smart Anti-theft Vehicle Ecosystem"`
 
 <img width="1600" height="1131" alt="image" src="https://github.com/user-attachments/assets/c64bfbd4-b3b7-43d9-83ad-c203a5aa11bc" />
 
 ## 1.4 One-Line Pitch
 
-`A projected, fully customizable time portal where engineering education is done through PUBG battlefield in the comfort of our home`
+`A tri-state secured IoT vehicle featuring remote React web dashboard control, local RFID access, and instant hardware-level crash prevention reflexes.`
 
 ## 1.5 Expanded Project Idea
-
-In 1–2 paragraphs, explain:
-
-- what your project is,
-- what kind of experience it creates,
-- what technologies are involved.
 
 **Response:**  
 `A projected and fully customizable time portal can transform engineering education into an immersive PUBG-style battlefield experience from the comfort of home. In this environment, students can learn engineering concepts by entering a virtual battlefield where challenges, obstacles, and missions are designed around real technical problems. Instead of passively studying theory, learners actively apply concepts such as electronics, coding, sensors, robotics, mechanics, and system design to complete missions, solve problems, and progress through different levels. This approach makes engineering education more interactive, engaging, and practical by combining gaming, simulation, and hands-on problem-solving in a familiar and exciting format.`
