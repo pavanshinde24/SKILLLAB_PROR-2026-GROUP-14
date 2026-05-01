@@ -107,27 +107,13 @@ Check all that apply.
 
 ## 5.2 High-Level System Description
 
-Explain how the system works in simple terms.
-
-Include:
-
-- input,
-- processing,
-- output,
-- physical structure,
-- app interaction if any.
-
-**Response:**  
-`-INPUT 1 (Digital): React Dashboard sends OTP and drive commands over Wi-Fi to the Pi.
- -INPUT 2 (Security): RFID HW-147 reads cards (SPI), and Touch sensor detects tampering
-  (GPIO 17).
- -PROCESSING 1 (Brain): Pi Flask server validates inputs, handles security, and sends Serial
-  chars (U, F, B, L, R, S) via USB.
- -PROCESSING 2 (Reflexes): Arduino reads USB commands AND local Collision Sensors
-  (Ultrasonic/IR).
- -OUTPUT 1 (Physical): Arduino drives L293D shield, Servo, and 4 BO Motors.
- -OUTPUT 2 (Digital): Pi emits Socket.IO updates to update the React UI and flashes LED
-  Arrow boards on alarm.`
+- INPUT 1 (Digital): React Dashboard sends OTP and drive commands over Wi-Fi to the Pi.
+- INPUT 2 (Security): RFID HW-147 reads cards (SPI), and Touch sensor detects tampering (GPIO 17).
+- PROCESSING 1 (Brain): Pi Flask server validates inputs, handles security, and sends Serial chars (U, F, B, L, R, S) via USB.
+- PROCESSING 2 (Reflexes): Arduino reads USB commands AND local Collision Sensors (Ultrasonic/IR).
+- OUTPUT 1 (Physical): Arduino drives L293D shield, Servo, and 4 BO Motors.
+- OUTPUT 2 (Digital): Pi emits Socket.IO updates to update the React UI and flashes LED Arrow boards on alarm.
+- 
 ## 5.3 Input / Output Map
 
 | **System Part** | **Type** | **What It Does** |
@@ -140,12 +126,10 @@ Include:
 | Arduino Uno | Processing | Translates serial commands to motor movement and manages sensor reflexes. |
 | L293D Motor Shield | Output | Physically drives the 4WD chassis. |
 
-
 # 6. System Design, Sketches and Visual Planning 
 
 ## 6.1 Concept Architecture/sketch/schematic
 
-Add an early sketch of the full idea.
 graph TD
 classDef ui fill:#1e40af,stroke:#60a5fa,stroke-width:2px,color:#fff;
 classDef pi fill:#b91c1c,stroke:#f87171,stroke-width:2px,color:#fff;
