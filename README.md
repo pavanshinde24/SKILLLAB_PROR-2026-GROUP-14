@@ -450,7 +450,9 @@ commands.]`|
 
 | Date          | Problem Found                         | Type         | What You Tried                                | Result               | Next Action                                    |
 | ------------- | ------------------------------------- | ------------ | --------------------------------------------- | -------------------- | ---------------------------------------------- |
-| `18th April`  | `Car not balancing properly`          | `Mechanical` | `Add low-friction caster support to one side` | `Worked`             | `improve caster structure`                     |
+| `1st April`  | `Delay in communication between Pi and Arduino`          | `Technical` | `Optimized serial communication and reduced data load` | `Partially Worked`             | `Implement more efficient communication protocol`                     |
+| `1st April`  | `Inconsistent obstacle detection (IR sensors)`          | `Electrical` | `Recalibrated sensors and adjusted positioning` | `Worked`             | `Test in different lighting conditions`                     |
+
 
 
 ## 14.3 Playtesting Notes
