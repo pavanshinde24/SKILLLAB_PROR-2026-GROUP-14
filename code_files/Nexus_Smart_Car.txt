@@ -1,0 +1,76 @@
+#include "Config.h"
+#include "Motors.h"
+#include "Sensors.h"
+#include "Comms.h"
+#include "Reflexes.h"
+
+#if USE_OLED
+  #include "Display.h"
+#endif
+
+// Create the global variables in memory
+bool isCarLocked = true;         
+bool isAutopilotEnabled = false; 
+char currentDriveCommand = 'S';  
+
+int distanceAhead = 100;
+bool leftWallDetected = false;
+bool rightWallDetected = false;
+
+unsigned long lastDebugTime = 0;
+
+void setup() {
+  initComms(); 
+  Serial.println("\n--- BOOTING NEXUS ROBOTICS ---");
+
+  #if USE_OLED
+    Serial.println("-> Starting OLED...");
+    initDisplay();
+  #else
+    Serial.println("-> OLED Skipped");
+  #endif
+
+  Serial.println("-> Starting Motors...");
+  initMotors();
+  
+  Serial.println("-> Starting Sensors...");
+  initSensors();
+  
+  playBootSound();
+
+  Serial.println("--- SYS:READY ---");
+}
+
+void loop() {
+  // 1. Always listen for the 'Unlock' command
+  checkComms();
+
+  #if USE_OLED
+    updateDisplay();
+  #endif
+
+  // 2. SECURITY & POWER SAVE MODE
+  if (isCarLocked) {
+    return; // STOP HERE! The Arduino goes back to sleep. No sensor reading, no printing.
+  } 
+
+  // 3. ONLY READ SENSORS IF UNLOCKED
+  updateSensors();
+
+  // 4. ONLY PRINT DATA IF UNLOCKED
+  #if DEBUG_MODE
+    if (millis() - lastDebugTime > 1000) {
+      Serial.print("[DEBUG] Dist: "); Serial.print(distanceAhead);
+      Serial.print("cm | L-IR: "); Serial.print(leftWallDetected ? "WALL " : "Clear");
+      Serial.print(" | R-IR: "); Serial.println(rightWallDetected ? "WALL " : "Clear");
+      lastDebugTime = millis();
+    }
+  #endif
+
+  // 5. MOTOR REFLEXES
+  if (isAutopilotEnabled) {
+    runAutopilotReflexes();
+  } else {
+    runManualSafetyReflexes();
+  }
+}
