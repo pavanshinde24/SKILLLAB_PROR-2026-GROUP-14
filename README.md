@@ -472,80 +472,50 @@ commands.]`|
 ## 16 Build Photos
 
 <img width="738" height="1600" alt="car img" src="https://github.com/user-attachments/assets/56cfbe16-780e-4365-9c56-09c8399b82f3" />
+
 <img width="738" height="1600" alt="car1 img" src="https://github.com/user-attachments/assets/9ba62fd6-3d27-4700-8ff1-c82803a8adb8" />
 
 # 17. Final Outcome
 
 ## 17.1 Final Description
 
-Describe the final version of your project.
-
-**Response:**  
-
+`The final version of the S.A.V.E. (Smart Autonomous Vehicle Environment) system is an IoT-based smart vehicle platform that integrates a Raspberry Pi for high-level processing and web control with an Arduino for real-time motor and sensor operations. It features RFID-based secure access, ultrasonic and IR sensors for multi-directional obstacle detection, and a capacitive touch sensor for anti-theft protection. The system allows remote monitoring and control through a web interface, while ensuring safe navigation and reliable performance through efficient hardware-software integration, making it a compact and intelligent prototype for smart vehicle applications.`
 
 ## 17.2 What Works Well
 
-
+- `The Serial USB bridge between the Pi and Arduino.`
+- `Hardware isolation (Pi handles 3.3V sensors, Arduino handles 5V/11V motors).`
+- `Clean wiring using the A2 and A3 analog pins as digital inputs for the IR sensors.`
 
 ## 17.3 What Still Needs Improvement
 
+`While the system is functional, it still needs improvements in response time, sensor accuracy, and overall system optimization. Communication between the Raspberry Pi and Arduino can be further refined to reduce latency. The obstacle detection system may require better calibration for consistent performance in different environments, and the web interface can be enhanced for a more user-friendly experience. Additionally, improving power efficiency and adding more advanced features like autonomous navigation or real-time data analytics would make the system more robust and scalable.`
 
 ## 17.4 What Changed From the Original Plan
 
-How did the project change from the initial idea?
-
-**Response:**  
-
-
----
+`We initially planned to run the RFID and Touch sensors on the Arduino. However, due to logic
+voltage differences (3.3V vs 5V) and SPI pin conflicts with the Motor Shield, we shifted the
+security sensors to the Raspberry Pi. This improved performance and separated the "Security
+Hub" from the "Motor Controller".`
 
 # 18. Reflection
 
 ## 18.1 Team Reflection
 
-What did your team do well?  
-What slowed you down?  
-How well did you manage time, tasks, and responsibilities?
-
-**Response:**  
-
+`The team worked well in collaboratively integrating hardware and software components, with clear division of tasks such as coding, circuit setup, and testing. Effective communication helped in quickly resolving minor issues during development. However, progress was occasionally slowed by sensor calibration challenges and integration delays between modules. Overall, time and responsibilities were managed fairly well, though better planning and earlier testing could have improved efficiency and reduced last-minute adjustments.`
 
 ## 18.2 Technical Reflection
 
-What did you learn about:
-
-- electronics,
-- coding,
-- mechanisms,
-- fabrication,
-- integration?
-
-**Response:**  
+`Through this project, we gained practical knowledge across multiple domains. In electronics, we learned how to interface sensors, motors, and power systems effectively. In coding, we improved our skills in microcontroller programming and communication between systems like Raspberry Pi and Arduino. Mechanically, we understood how motor selection and chassis design affect movement and stability. In fabrication, we learned basic assembly, wiring, and component placement for reliability. Most importantly, in integration, we realized the challenge of combining all hardware and software modules into a single, smoothly functioning system.`
 
 
 ## 18.3 Design Reflection
-
-What did you learn about:
-
-- designing ,
-- delight,
-- clarity,
-- physical interaction,
-- understanding,
-- iteration?
-
-**Response:**  
-
+ 
+`Through this project, we learned that good designing is not just about functionality but also about making the system intuitive and user-friendly. We understood the importance of delight in creating engaging experiences, such as smooth control and interactive features. Clarity became essential in both the user interface and system feedback to avoid confusion. Physical interaction taught us how users engage with real-world components like sensors and controls. We also improved our understanding of user behavior through testing, which guided better decisions. Finally, iteration proved crucial, as repeated testing and refinement helped us gradually improve performance, usability, and overall system quality.`
 
 ## 18.4 If You Had One More hour
 
-What would you improve next?
-
-**Response:**  
-
-` `
-
----
+`With one more hour, we would focus on fine-tuning system performance by improving sensor calibration and reducing communication delay between modules. We would also make small but impactful enhancements to the user interface for clearer feedback and smoother control. Additionally, we’d run a quick round of testing to fix minor bugs and ensure more consistent, reliable behavior across all features.`
 
 # 19. Final Submission Checklist
 
