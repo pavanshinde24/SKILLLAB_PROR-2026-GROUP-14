@@ -425,22 +425,14 @@ Expected outcomes:
 
 | Risk                                                            | Type         | Likelihood | Impact   | Mitigation Plan                                                                       | Owner                |
 | --------------------------------------------------------------- | ------------ | ---------- | -------- | ------------------------------------------------------------------------------------- | -------------------- |
-| WiFi connection between laptop and ESP32 becomes unstable       | `Technical`  | `Medium`   | `High`   | Keep ESP32 close, ensure stable power supply, reduce network load, add fail-safe stop | `[Gopal]`           |
-| WiFi connection between laptop and ESP32 becomes unstable       | `Technical`  | `Medium`   | `High`   | Keep ESP32 close, ensure stable power supply, reduce network load, add fail-safe stop | `[Gopal]`           |
-| WiFi connection between laptop and ESP32 becomes unstable       | `Technical`  | `Medium`   | `High`   | Keep ESP32 close, ensure stable power supply, reduce network load, add fail-safe stop | `[Gopal]`           |
-| WiFi connection between laptop and ESP32 becomes unstable       | `Technical`  | `Medium`   | `High`   | Keep ESP32 close, ensure stable power supply, reduce network load, add fail-safe stop | `[Gopal]`           |
-
-
-
+|  `Power loop frying boards`        | `Hardware`  | ` Fatal`   | `High`   | `Removed the PWR jumper on the L293D shield to isolate the 11.1V battery from the Pi/Arduino 5V logic.`  | `[Prasad]`           |
+|  `5V Logic mismatch with RFID`        | `Hardware`  | ` Fatal`   | `High`   | `The HW-147 is 3.3V. We moved it off the 5V Arduino and connected it to the Raspberry Pi's native 3.3V SPI pins`  | `[Yash]`           |
+|  `SPI Pin conflicts`        | `Technical`  | `High`   | `High`   | `The Motor shield internally uses SPI pins. By moving the RFID to the Raspberry Pi, we completely bypassed this conflict.`  | `[Shaunak]`           |
+|  `Code locking up`        | `Technical`  | `High`   | `High`   | ` Used a non-blocking timeout on the Ultrasonic ping functions to ensure the Arduino loop never hangs.`  | `[Pavan]`           |
 
 ## 13.2 Biggest Unknown Right Now
 
-What is the single biggest uncertainty in your project at this stage?
-
-**Response:**  
-
-
----
+`The biggest uncertainty at this stage is the seamless integration and communication between the Raspberry Pi and Arduino, especially in handling real-time data exchange and synchronization. While individual components and modules function correctly in isolation, ensuring reliable coordination between high-level processing (Pi) and low-level control (Arduino) without latency or data loss remains a key challenge that could impact overall system performance.`
 
 # 14. Testing 
 
@@ -448,8 +440,13 @@ What is the single biggest uncertainty in your project at this stage?
 
 | What Needs Testing     | How You Will Test It                                                                 | Success Condition                                                                                    |
 | ---------------------- | ------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------- |
-| `[Wifi connection]`    | `[Check if motor spins via app button]`                                              | `[Both motors accurately respond to wifi signals]`                                                   |
-                       |
+| `[OTP Auth]`    | `[Enter 123456 on React Web App]`                                              | `[Pi prints 'Unlocked', sends 'U' over Serial, Dashboard turns green.]`|
+| `[Anti-Thef]`    | `[Touch the capacitive sensor]`                                              | `[Pi GPIO triggers LEDs to flash, UI shows red
+"TAMPERING" alert.]`| 
+| `[Drive Logic]`    | `[Press Forward on Dashboard]`                                              | `[All 4 BO Motors spin forward in unison.]`| 
+| `[Crash Reflex]`    | `[Put hand in front of Ultrasonic]`                                              | `[Arduino cuts motor power instantly regardless of Pi
+commands.]`| 
+                       
 ## 14.2 Testing and Debugging Log
 
 | Date          | Problem Found                         | Type         | What You Tried                                | Result               | Next Action                                    |
@@ -461,61 +458,21 @@ What is the single biggest uncertainty in your project at this stage?
 
 | Tester      | What They Did                        | What Confused Them                    | What They Enjoyed                         | What You Will Change                          |
 | ----------- | ------------------------------------ | ------------------------------------- | ----------------------------------------- | --------------------------------------------- |
-| `Gopal` | `Tried navigating through obstacles` | `Some obstacles ewren't clear enough` | `Liked projection + real car interaction` | `Add a slight red highlight around obstacles` |
-
-
----
+| `Prasad` | `Tested RFID access and vehicle start` | `Delay in authentication response` | `Liked security feature with real-time control` | `Optimize RFID response time and feedback signal` |
+| `Shaunak` | `Tested obstacle detection sensors` | `IR sensor detection range inconsistency` | `Liked automatic collision avoidance` | `Calibrate sensors for better accuracy` |
+| `Pavan` | `Checked anti-theft touch functionality` | `UI buttons were not very intuitive` | `Enjoyed remote control feature` | `Improve UI design and add clearer labels` |
+| `Yash` | `Controlled vehicle via web interface` | `Some obstacles ewren't clear enough` | `Liked projection + real car interaction` | `Add a slight red highlight around obstacles` |
 
 # 15. Build Documentation
 
 ## 15.1 Fabrication Process(if any)
 
-Describe how the project was physically made.
-
-Include:
-
-- cutting,
-- 3D printing,
-- assembly,
-- fastening,
-- wiring,
-- finishing,
-- revisions.
-
-**Response:**  
-`The fabrication process involved designing, manufacturing, assembling, and refining both the physical structure and electronic integration of the system.`
-
-`Design (CAD Modeling):
-The initial model was created using CAD software, where components were designed based on the actual dimensions of the electronic parts. This ensured accurate fitting and minimized errors during assembly.
-Cutting (Laser Cutting):
-The designed parts were fabricated using laser cutting techniques. Sheets were cut precisely according to the CAD model to create the structural base and mounts for components.`
-
-`Components were fixed using adhesives and mechanical supports. Certain parts were intentionally kept modular (not permanently fixed) to allow easy replacement and modification of electronics.
-Surface Finishing:
-Some parts were sanded to smooth rough edges after cutting. Sawdust mixed with adhesive was used to fill gaps and uneven edges, improving structural finish. The final structure was then painted for better aesthetics and durability.`
-
-`Environment Setup (Dark Room Fabrication):
-To enhance projection visibility, a controlled dark environment was created using Z-boards, paper sheets, and bedsheets. This minimized external light interference and improved projection clarity.
-Revisions and Iterations:
-Multiple adjustments were made throughout the process, including refining alignment, improving structural stability, repositioning components, and optimizing the interaction between the physical car and projected environment.`
+`None.`
 
 ## 16 Build Photos
 
-Add photos throughout the project.
-
-Suggested images:
-
-- early sketch,
-- prototype,
-- electronics testing,
-- mechanism test,
-- app screenshot,
-- final build.
-- <img width="960" height="1280" alt="WhatsApp Image 2026-04-24 at 9 46 02 AM (1)" src="https://github.com/user-attachments/assets/74baa570-5770-483e-be6d-d2f03386e37c" />
-
-
-
-
+<img width="738" height="1600" alt="car img" src="https://github.com/user-attachments/assets/56cfbe16-780e-4365-9c56-09c8399b82f3" />
+<img width="738" height="1600" alt="car1 img" src="https://github.com/user-attachments/assets/9ba62fd6-3d27-4700-8ff1-c82803a8adb8" />
 
 # 17. Final Outcome
 
