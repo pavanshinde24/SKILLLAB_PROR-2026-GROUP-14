@@ -286,24 +286,20 @@ Suggested sequence:
 
 | Item                             | Quantity | In Kit? | Need to Buy? | Estimated Cost | Material / Spec               | Why This Choice?          |
 | -------------------------------- | --------:| ------- | ------------ | --------------:| ----------------------------- | ------------------------- |
-| `[Raspberry Pi 4]`                        | `[1]`      | `[Y/N]`  | `[Y/N]`        | `[5000]`            | `[Web server brain]`                | `[To control components]` |
-| `[Arduino Uno]`                 | `[1]`    | `[Y/N]` | `[Y/N]`       | `[200]`            | `[ ATmega328P]`                     | `[To drive both motors]`  |
-| `[L293D Motor Shield]`          | `[1]`    | `[Y/N]`  | `[Y/N]`      | `[150]`        | `[ V1 Adafruit clone]` | `[high torque motors]`    |
-| `[DC BO Motors]`               | `[4]`    | `[Y/N]`  | `[Y/N]`      | `[200]`         |       `[Yellow plastic gear]`        |`[Standard robotics base]`       |
-| `[HW-147 RFID]` | `[1]`    | `[Y/N]`  | `[Y/N]`      | `[200]`        |             `[ 13.56MHz]`                      | `[Hardware Security]`      |
-| `[HC-SR04]`                 | `[1]`    | `[Y/N]` | `[Y/N]`       | `[100]`            | `[ Ultrasonic]`                     | `[ Front collision prevention]`  |
-| `[IR Sensors]`          | `[2]`    | `[Y/N]`  | `[Y/N]`      | `[150]`        | `[ Infrared]` | `[Side collision prevention]`    |
-| `[Capacitive Touch]`               | `[1]`    | `[Y/N]`  | `[Y/N]`      | `[100]`         |  [ Digital output]    |  [Anti-theft detection]                 |
-| `[11.1V Li-Po Battery]` | `[1]`    | `[Y/N]`  | `[Y/N]`      | `[1000]`        |  [4500mAh 3S ]     | [ High discharge rate for 4 motors]  |
+| `[Raspberry Pi 4]`                        | `[1]`      | `[Y]`  | `[N]`        | `[5000]`            | `[Web server brain]`                | `[To control components]` |
+| `[Arduino Uno]`                 | `[1]`    | `[Y]` | `[N]`       | `[200]`            | `[ ATmega328P]`                     | `[To drive both motors]`  |
+| `[L293D Motor Shield]`          | `[1]`    | `[Y]`  | `[N]`      | `[150]`        | `[ V1 Adafruit clone]` | `[high torque motors]`    |
+| `[DC BO Motors]`               | `[4]`    | `[Y]`  | `[N]`      | `[200]`         |       `[Yellow plastic gear]`        |`[Standard robotics base]`       |
+| `[HW-147 RFID]` | `[1]`    | `[Y]`  | `[N]`      | `[200]`        |             `[ 13.56MHz]`                      | `[Hardware Security]`      |
+| `[HC-SR04]`                 | `[1]`    | `[Y]` | `[N]`       | `[100]`            | `[ Ultrasonic]`                     | `[ Front collision prevention]`  |
+| `[IR Sensors]`          | `[2]`    | `[Y]`  | `[N]`      | `[150]`        | `[ Infrared]` | `[Side collision prevention]`    |
+| `[Capacitive Touch]`               | `[1]`    | `[Y]`  | `[N]`      | `[100]`         |  [ Digital output]    |  [Anti-theft detection]                 |
+| `[11.1V Li-Po Battery]` | `[1]`    | `[Y]`  | `[N]`      | `[1000]`        |  [4500mAh 3S ]     | [ High discharge rate for 4 motors]  |
 
 
 ## 9.2 Material Justification
 
-Explain why you selected your main materials and components.
-
-**Response:**  
-`DC motors (BO motors) were chosen instead of servos or steppers because the system requires continuous rotation for movement rather than precise angular control (Previously, we were considering using steppers as we were planning on tracking movement on the ESP using its relative position from an origin, but since we're using a camera now, this is not required). A motor driver (L298N) was used to allow bidirectional control and speed variation using PWM.`
-
+`The selected materials are chosen to balance performance, cost, and ease of integration for the S.A.V.E. IoT vehicle system. The Raspberry Pi 4 acts as the central processing unit, enabling advanced tasks like web control and security handling, while the Arduino Uno efficiently manages real-time motor control using the L293D Motor Shield. The DC BO motors provide a reliable and low-cost mobility solution suitable for small robotic platforms. For sensing and safety, the HC-SR04 ultrasonic sensor and IR sensors ensure effective obstacle detection from multiple directions, while the capacitive touch sensor enhances security through anti-theft interaction. The HW-147 RFID module adds an additional layer of hardware-based authentication. Finally, the 11.1V Li-Po battery is selected for its high discharge capability, ensuring stable and sufficient power delivery to all four motors, making the system robust and efficient for continuous operation.`
 
 ## 9.3 Items You chose
 
