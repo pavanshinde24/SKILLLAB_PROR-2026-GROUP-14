@@ -441,8 +441,7 @@ Expected outcomes:
 | What Needs Testing     | How You Will Test It                                                                 | Success Condition                                                                                    |
 | ---------------------- | ------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------- |
 | `[OTP Auth]`    | `[Enter 123456 on React Web App]`                                              | `[Pi prints 'Unlocked', sends 'U' over Serial, Dashboard turns green.]`|
-| `[Anti-Thef]`    | `[Touch the capacitive sensor]`                                              | `[Pi GPIO triggers LEDs to flash, UI shows red
-"TAMPERING" alert.]`| 
+| `[Anti-Thef]`    | `[Touch the capacitive sensor]`                                              | `[Pi GPIO triggers LEDs to flash, UI shows red "TAMPERING" alert.]`| 
 | `[Drive Logic]`    | `[Press Forward on Dashboard]`                                              | `[All 4 BO Motors spin forward in unison.]`| 
 | `[Crash Reflex]`    | `[Put hand in front of Ultrasonic]`                                              | `[Arduino cuts motor power instantly regardless of Pi
 commands.]`| 
