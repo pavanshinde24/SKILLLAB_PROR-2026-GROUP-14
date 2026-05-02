@@ -450,8 +450,8 @@ commands.]`|
 
 | Date          | Problem Found                         | Type         | What You Tried                                | Result               | Next Action                                    |
 | ------------- | ------------------------------------- | ------------ | --------------------------------------------- | -------------------- | ---------------------------------------------- |
-| `1st April`  | `Delay in communication between Pi and Arduino`          | `Technical` | `Optimized serial communication and reduced data load` | `Partially Worked`             | `Implement more efficient communication protocol`                     |
-| `1st April`  | `Inconsistent obstacle detection (IR sensors)`          | `Electrical` | `Recalibrated sensors and adjusted positioning` | `Worked`             | `Test in different lighting conditions`                     |
+| `1st May`  | `Delay in communication between Pi and Arduino`          | `Technical` | `Optimized serial communication and reduced data load` | `Partially Worked`             | `Implement more efficient communication protocol`                     |
+| `1st May`  | `Inconsistent obstacle detection (IR sensors)`          | `Electrical` | `Recalibrated sensors and adjusted positioning` | `Worked`             | `Test in different lighting conditions`                     |
 
 
 
