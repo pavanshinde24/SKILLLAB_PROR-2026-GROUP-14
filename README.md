@@ -228,12 +228,7 @@
 
 ## 7.3 Circuit Diagram/architecture diagram
 
-Insert a hand-drawn or software-made circuit diagram.
-
-**Insert image below:**  
-`[Upload image and link here]`
-<img width="867" height="1156" alt="" src="" />
-
+<img width="1698" height="926" alt="car3 img" src="https://github.com/user-attachments/assets/e6eaf82e-5635-4765-bf24-73d3353b3227" />
 
 # 7.4. Power Plan
 
