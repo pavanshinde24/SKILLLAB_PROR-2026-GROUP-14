@@ -260,25 +260,7 @@
 
 ## 8.3 Code Flowchart
 
-Insert a flowchart showing your code logic.
-
-Suggested sequence:
-
-- start,
-- initialize,
-- wait for input,
-- read input,
-- decision,
-- trigger output,
-- repeat or reset,
-- error handling.
-
-**Insert image below:**  
-<img width="1600" height="1200" alt="image" src="" />
-<img width="1600" height="1200" alt="image" src="" />
-
-
-
+<img width="1408" height="768" alt="1777705277316" src="https://github.com/user-attachments/assets/f4145b3e-6463-4c75-b1f2-67f1a3108c39" />
 
 # 9. Bill of Materials
 
