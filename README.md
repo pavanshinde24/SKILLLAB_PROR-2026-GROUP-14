@@ -293,8 +293,8 @@ Suggested sequence:
 | `[HW-147 RFID]` | `[1]`    | `[Y]`  | `[N]`      | `[200]`        |             `[ 13.56MHz]`                      | `[Hardware Security]`      |
 | `[HC-SR04]`                 | `[1]`    | `[Y]` | `[N]`       | `[100]`            | `[ Ultrasonic]`                     | `[ Front collision prevention]`  |
 | `[IR Sensors]`          | `[2]`    | `[Y]`  | `[N]`      | `[150]`        | `[ Infrared]` | `[Side collision prevention]`    |
-| `[Capacitive Touch]`               | `[1]`    | `[Y]`  | `[N]`      | `[100]`         |  [ Digital output]    |  [Anti-theft detection]                 |
-| `[11.1V Li-Po Battery]` | `[1]`    | `[Y]`  | `[N]`      | `[1000]`        |  [4500mAh 3S ]     | [ High discharge rate for 4 motors]  |
+| `[Capacitive Touch]`               | `[1]`    | `[Y]`  | `[N]`      | `[100]`         |  `[ Digital output]`    |  `[Anti-theft detection]`                 |
+| `[11.1V Li-Po Battery]` | `[1]`    | `[Y]`  | `[N]`      | `[1000]`        |  `[4500mAh 3S ]`     | `[ High discharge rate for 4 motors]`  |
 
 
 ## 9.2 Material Justification
@@ -305,28 +305,31 @@ Suggested sequence:
 
 | Item                 | Why Needed               | Purchase Link | Latest Safe Date to Procure | Status       |
 | -------------------- | ------------------------ | ------------- | --------------------------- | ------------ |
-| `BO Motors + Wheels` | `Drive system for car`   | `robu.in`     | `15th April`                | `[Received]` |
-| `Buck Converter`     | `Stable power for ESP32` | `local store` | `before testing`            | `[Received]` |
-| `Li-ion Batteries`   | `Portable power`         | `local store` | `before testing`            | `Recieved`   |
+| `Raspberry Pi 4` | `Main controller & web server`   | `Available (Campus)`     | `N/A`                | `[Received]` |
+| `Arduino Uno`     | `Motor & sensor control` | `Available (Campus)` | `N/A`            | `[Received]` |
+| `L293D Motor Shield`   | `Motor driving interface`         | `Available (Campus)` | `N/A`            | `Recieved`   |
+| `DC BO Motors` | `Robot movement`   | `Available (Campus)`     | `N/A`                | `[Received]` |
+| `HW-147 RFID`     | `Security authentication` | `Available (Campus)` | `N/A`            | `[Received]` |
+| `HC-SR04`   | `Front obstacle detection`         | `Available (Campus)` | `N/A`            | `Recieved`   |
+| `IR Sensors`     | `Side obstacle detection` | `Available (Campus)` | `N/A`            | `[Received]` |
+| `Capacitive Touch`   | `Anti-theft interaction`         | `Available (Campus)` | `N/A`            | `[Recieved]`   |
+| `11.1V Li-Po Battery`   | `Power supply for motors`         | `Available (Campus)` | `N/A`            | `[Recieved]`   |
+
 
 ## 9.4 Budget Summary
 
 | Budget Item           | Estimated Cost              |
 | --------------------- | ---------------------------:|
-| Electronics           | `[400]`                     |
-| Mechanical parts      | `[200]`                     |
+| Electronics           | `[0  (Available on campus)]`                     |
+| Mechanical parts      | `[0  (Available on campus)]`                     |
 | Fabrication materials | `[0 (Available on campus)]` |
-| Purchased extras      | `[0]`                       |
-| Contingency           | `[300]`                     |
-| **Total**             | `[900]`                     |
+| Purchased extras      | `[0  (Available on campus)]`                       |
+| Contingency           | `[0  (Available on campus)]`                     |
+| **Total**             | `[0]`                     |
 
 ## 9.5 Budget Reflection
 
-If your cost is too high, what can be simplified, removed, substituted, or shared?
-
-**Response:**  
-
----
+Since all required components were provided by the campus, the project incurred no direct financial cost, making it highly budget-efficient. This allowed full focus on design, integration, and performance without procurement constraints. Even though the components (like Raspberry Pi, Arduino, sensors, and motors) have significant market value, utilizing institutional resources demonstrates cost optimization and effective resource management, which is ideal for academic prototyping and development.
 
 # 10. Planning the Work
 
@@ -335,26 +338,27 @@ If your cost is too high, what can be simplified, removed, substituted, or share
 `Tasks are divided by system layers: React UI, Pi/Python bridge, Arduino/C++ code, and physical
 assembly/wiring. Decisions are made collaboratively. If Wi-Fi fails, we rely on RFID as a backup.
 Documentation is maintained live in this GitHub repo.` 
- 
-
 
 ## 10.2 Task Breakdown
 
 | Task ID | Task                    | Owner    | Estimated Hours | Deadline     | Dependency | Status |
 | ------- | ----------------------- | -------- | ---------------:| ------------ | ---------- | ------ |
-| T1      | `[Finalize concept]`    | `[Both]` | `2`             | `1st April`  | `None`     | `Done` |
+| T1      | `[Hardware]`    | `[Prasad]` | `36`             | `1st May`  | `None`     | `Done` |
+| T2     | `[Software]`    | `[Shaunak]` | `36`             | `1st May`  | `None`     | `Done` |
+| T3      | `[Github]`    | `[Pavan]` | `36`             | `1st May`  | `None`     | `Done` |
+| T4      | `[Documentation]`    | `[Yash]` | `36`             | `1st May`  | `None`     | `Done` |
 
 
 ## 10.3 Responsibility Split
 
 | Area                 | Main Owner     | Support Owner |
 | -------------------- | ----------     | ------------- |
-| Concept              | `[Mrugendra]`  | `[Jyoti]`     |
-| Electronics          | `[]`           | `[]`          |
-| Coding               | `[]`           | `[]`          |
-| Mechanical build     | `[]`           | `[]`          |
-| Testing              | `[]`           | `[]`          |
-| Documentation        | `[]`           | `[]`          |
+| Concept              | `[Pavan]`  | `[Yash]`     |
+| Electronics          | `[Prasad]`           | `[Yash]`          |
+| Coding               | `[Shaunak]`           | `[Prasad]`          |
+| Mechanical build     | `[Prasad]`           | `[Shaunak]`          |
+| Testing              | `[Shaunak]`           | `[Pavan]`          |
+| Documentation        | `[Yash]`           | `[Pavan]`          |
 
 ---
 
@@ -408,10 +412,10 @@ Expected outcomes:
 
 | Days   | Planned Goal   | What Actually Happened | What Changed   | Next Steps     |
 | ------ | -------------- | ---------------------- | -------------- | -------------- |
-| Day 1 | `[Write here]` | `[Write here]`         | `[Write here]` | `[Write here]` |
-| Day 2 | `[Write here]` | `[Write here]`         | `[Write here]` | `[Write here]` |
-| Day 3 | `[Write here]` | `[Write here]`         | `[Write here]` | `[Write here]` |
-| Day 4 | `[Write here]` | `[Write here]`         | `[Write here]` | `[Write here]` |
+| Day 1 | `[Harware and Software Implementation]` | `[All Implemented]`         | `[All Worked]` | `[Updates]` |
+| Day 2 | `[Updates]` | `[Updated]`         | `[All Worked]` | `[Final Submission]` |
+| Day 3 | `[Final Submission]` | `[Pending]`         | `[Working]` | `[Improve the Project ]` |
+
 
 ---
 
